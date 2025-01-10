@@ -6,5 +6,5 @@ metadata:
   labels:
     {{- include "ilo-exporter.labels" . | nindent 4 }}
 stringData:
-  ilo.yml: {{ tpl .Values.iloConfig . | quote }}
+  idrac.yml: {{ tpl .Values.iloConfig . | quote }}
 {{ end }}
