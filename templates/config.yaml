@@ -1,0 +1,10 @@
+{{ if .Values.iloConfig }}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ include "ilo-exporter.fullname" . }}-config
+  labels:
+    {{- include "ilo-exporter.labels" . | nindent 4 }}
+stringData:
+  ilo.yml: {{ tpl .Values.iloConfig . | quote }}
+{{ end }}
